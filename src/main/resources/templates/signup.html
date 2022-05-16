@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>SignUp</title>
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h3>Sign Up account</h3>
+		<hr>
+	
+		<form action="#" th:action="@{/auth/signup}"
+						 th:object="${user}" method="POST">
+		
+			<!-- Add hidden form field to handle update -->
+<!--			<input type="text" th:field="*{account}" readonly  class="form-control mb-4 col-4" placeholder="Account No"/>-->
+			
+			<input type="text" th:field="*{firstName}"
+					class="form-control mb-4 col-4" placeholder="First name">
+
+			<input type="text" th:field="*{lastName}"
+					class="form-control mb-4 col-4" placeholder="Last name">
+
+			<input type="text" th:field="*{email}"
+					class="form-control mb-4 col-4" placeholder="Email">
+
+			<input type="password" th:field ="*{password}" class="form-control mb-4 col-4" placeholder="Password" >
+<!--			<input type="text" th:field="*{balance}"-->
+<!--				   class="form-control mb-4 col-4" placeholder="Amount">-->
+				
+			<button type="submit" class="btn btn-info col-2">Save</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/login}">Back login</a>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

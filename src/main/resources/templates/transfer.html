@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Transfer Page</title>
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h3>Transfer Amount</h3>
+		<hr>
+	
+		<form action="#" th:action="@{/users/transfer}"
+						 th:object="${transactions}" method="POST">
+		
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{transactionID}" />
+			<input type="text" th:field="*{fromAccount}"  readonly class="form-control mb-4 col-4" placeholder="From account No"/>
+
+
+			<input type="text" th:field="*{toAccount}"  class="form-control mb-4 col-4" placeholder="To account No"/>
+
+
+			<input type="text" th:field="*{amount}"
+				   class="form-control mb-4 col-4" placeholder="Amount">
+				
+			<button type="submit" class="btn btn-info col-2">Save</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/users/user(uid=${transactions.fromAccount})}">Back home</a>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

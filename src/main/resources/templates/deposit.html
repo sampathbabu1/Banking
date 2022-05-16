@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Deposit Page</title>
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h3>Deposit Amount</h3>
+		<hr>
+	
+		<form action="#" th:action="@{/users/deposit}"
+						 th:object="${user}" method="POST">
+		
+			<!-- Add hidden form field to handle update -->
+			<input type="text" th:field="*{account}" readonly  class="form-control mb-4 col-4" placeholder="Account No"/>
+			
+			<input type="text" th:field="*{firstName}" readonly
+					class="form-control mb-4 col-4" placeholder="First name">
+
+			<input type="text" th:field="*{lastName}" readonly
+					class="form-control mb-4 col-4" placeholder="Last name">
+
+			<input type="text" th:field="*{email}" readonly
+					class="form-control mb-4 col-4" placeholder="Email">
+			<input type="text" th:field="*{balance}"
+				   class="form-control mb-4 col-4" placeholder="Amount">
+				
+			<button type="submit" class="btn btn-info col-2">Save</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/users/user(uid=${user.account})}">Back home</a>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

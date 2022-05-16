@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>List of Transactions</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Transaction List</h3>
+	<hr>
+	
+	<!-- Add a button -->
+
+	
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Transaction ID</th>
+				<th>From Account</th>
+				<th>To Account </th>
+				<th>Amount</th>
+				<th>Type</th>
+<!--				<th>Action</th>-->
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="transaction : ${transactions}">
+			
+				<td  th:text="${transaction.transactionID}" />
+				<td th:text="${transaction.fromAccount}" />
+				<td th:text="${transaction.toAccount}" />
+				<div th:if="${transaction.fromAccount!=account}">
+					<td style="background-color:green;color:white" th:text="${transaction.amount}" />
+					<td>CR</td>
+				</div>
+				<div th:if="${transaction.fromAccount==account}">
+					<td style="background-color:red;color:white" th:text="${transaction.amount}" />
+					<td>DR</td>
+				</div>
+<!--				<td style="${transaction.fromAccount==account} ? 'background-color:red' : 'background-color:green' " th:text="${transaction.amount}" />-->
+				
+<!--				<td>-->
+<!--					&lt;!&ndash; Add "update" button/link &ndash;&gt;-->
+<!--					<a th:href="@{/employees/showFormForUpdate(employeeId=${Employee.id})}"-->
+<!--					   class="btn btn-info btn-sm">-->
+<!--						Update-->
+<!--					</a>-->
+<!--					-->
+<!--					&lt;!&ndash; Add "delete" button/link &ndash;&gt;					-->
+<!--					<a th:href="@{/employees/delete(employeeId=${Employee.id})}"-->
+<!--					   class="btn btn-danger btn-sm"-->
+<!--					   onclick="if (!(confirm('Are you sure?'))) return false">-->
+<!--						Delete-->
+<!--					</a>-->
+					
+<!--				</td>-->
+				
+				
+			</tr>
+		</tbody>		
+	</table>
+	
+</div>
+	
+</body>
+</html>
+
+
+
