@@ -8,5 +8,6 @@ public class Home {
     @GetMapping("/")
     public String getHome(){
         return "redirect:/login";
+
     }
 }
